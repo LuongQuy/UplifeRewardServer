@@ -7,11 +7,8 @@ web3js = new web3(new web3.providers.HttpProvider("https://ropsten.infura.io/v3/
 var myAddress = account_config.address;
 var privateKey = Buffer.from(account_config.privateKey, 'hex')
  
-var contractABI = contract_config.contractABI;
-var contractAddress = contract_config.contractAddress;
- 
 //creating contract object
-var contract = new web3js.eth.Contract(contractABI,contractAddress);
+var contract = new web3js.eth.Contract(contract_config.contractABI,contract_config.contractAddress);
  
 exports.giveReward = (req, res) => {
     contract.methods.giveReward()
