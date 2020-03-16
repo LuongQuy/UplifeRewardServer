@@ -1,12 +1,10 @@
-const web3 = require('web3');
 const express = require('express');
-const Tx = require('ethereumjs-tx');
-
-const ownerRouter = require('./routes/owner');
+const bodyParser = require('body-parser');
+const ownerRouter = require('./routes/routes');
 
 const app = express();
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use('/', ownerRouter);
 
-app.use('/owner', ownerRouter);
- 
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
+app.listen(3000, () => console.log('Uplife Reward Server start on port 3000!'))

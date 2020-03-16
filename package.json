@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/LuongQuy/UplifeRewardServer#readme",
   "dependencies": {
-    "ethereumjs-tx": "^2.1.2",
+    "ethereumjs-tx": "^1.3.7",
     "express": "^4.17.1",
     "web3": "^1.2.6"
   }

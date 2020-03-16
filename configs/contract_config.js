@@ -1,77 +1,98 @@
 module.exports = {
     contractABI: [
         {
+            "constant": true,
+            "inputs": [
+                {
+                    "name": "userId",
+                    "type": "string"
+                }
+            ],
+            "name": "getReward",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [],
+            "name": "getBalance",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
             "constant": false,
             "inputs": [
                 {
-                    "name": "_to",
-                    "type": "address"
+                    "name": "_userId",
+                    "type": "string"
                 },
                 {
                     "name": "_value",
                     "type": "uint256"
-                },
-                {
-                    "name": "_rewardReasonMsg",
-                    "type": "string"
                 }
             ],
             "name": "giveReward",
             "outputs": [],
             "payable": false,
-            "type": "function",
-            "stateMutability": "nonpayable"
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "owner",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
         },
         {
             "constant": false,
             "inputs": [
                 {
-                    "name": "_sender",
-                    "type": "address"
-                },
-                {
-                    "name": "_receiver",
-                    "type": "address"
-                },
-                {
-                    "name": "_value",
-                    "type": "uint256"
-                },
-                {
-                    "name": "_senderMsg",
+                    "name": "userId",
                     "type": "string"
-                }
-            ],
-            "name": "sendReward",
-            "outputs": [],
-            "payable": false,
-            "type": "function",
-            "stateMutability": "nonpayable"
-        },
-        {
-            "constant": false,
-            "inputs": [
+                },
                 {
-                    "name": "_value",
-                    "type": "uint256"
-                }
-            ],
-            "name": "setAvailRewardPoints",
-            "outputs": [],
-            "payable": false,
-            "type": "function",
-            "stateMutability": "nonpayable"
-        },
-        {
-            "constant": false,
-            "inputs": [
-                {
-                    "name": "_spender",
+                    "name": "_userAddress",
                     "type": "address"
                 },
                 {
-                    "name": "_refill",
-                    "type": "address"
+                    "name": "reward",
+                    "type": "uint256"
+                }
+            ],
+            "name": "sendEth",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "_userId",
+                    "type": "string"
                 },
                 {
                     "name": "_value",
@@ -85,104 +106,20 @@ module.exports = {
             "name": "spendReward",
             "outputs": [],
             "payable": false,
-            "type": "function",
-            "stateMutability": "nonpayable"
+            "stateMutability": "nonpayable",
+            "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "name": "initValue",
-                    "type": "uint256"
-                }
-            ],
-            "payable": false,
-            "type": "constructor",
-            "stateMutability": "nonpayable"
-        },
-        {
-            "payable": false,
-            "type": "fallback",
-            "stateMutability": "nonpayable"
-        },
-        {
-            "anonymous": false,
-            "inputs": [
-                {
-                    "indexed": false,
-                    "name": "_sender",
-                    "type": "address"
-                },
-                {
-                    "indexed": false,
-                    "name": "_receiver",
-                    "type": "address"
-                },
-                {
-                    "indexed": false,
-                    "name": "_value",
-                    "type": "uint256"
-                },
-                {
-                    "indexed": false,
-                    "name": "_event",
-                    "type": "string"
-                },
-                {
-                    "indexed": false,
-                    "name": "_reason",
-                    "type": "string"
-                }
-            ],
-            "name": "BroadcastReward",
-            "type": "event"
-        },
-        {
-            "constant": true,
             "inputs": [],
-            "name": "owner",
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "address"
-                }
-            ],
             "payable": false,
-            "type": "function",
-            "stateMutability": "view"
+            "stateMutability": "nonpayable",
+            "type": "constructor"
         },
         {
-            "constant": true,
-            "inputs": [],
-            "name": "showAvailReward",
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "payable": false,
-            "type": "function",
-            "stateMutability": "view"
-        },
-        {
-            "constant": true,
-            "inputs": [
-                {
-                    "name": "_address",
-                    "type": "address"
-                }
-            ],
-            "name": "showMyReward",
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "payable": false,
-            "type": "function",
-            "stateMutability": "view"
+            "payable": true,
+            "stateMutability": "payable",
+            "type": "fallback"
         }
     ],
-    contractAddress: '0x17c809d844A7907bF7331E52c63b1791d0c53Cca'
+    contractAddress: '0x772866a111D75E611E5c8D035aaa9b28E1960Dcd'
 }
