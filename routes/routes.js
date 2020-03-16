@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-const ownerController = require('../controllers/rewardController');
+const rewardController = require('../controllers/rewardController');
 
-router.post('/giveReward', ownerController.giveReward);
-router.get('/getReward', ownerController.getReward);
-
+router.post('/giveReward', rewardController.giveReward);
+router.get('/getReward', rewardController.getReward);
+router.get('/getBalance', rewardController.getBalance);
+router.post('/sendEthToSmartContract', rewardController.sendEthToSmartContract);
 module.exports = router;

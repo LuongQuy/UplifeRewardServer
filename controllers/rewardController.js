@@ -48,8 +48,7 @@ exports.getReward = (req, res) => {
     .then(reward => res.send(reward))
 }
 
-exports.sendEth = (req, res) => {
-    var userId = req.body.userId;
+exports.sendEthToUser = (req, res) => {
     var userAddress = req.body.userAddress;
     var reward = req.body.reward;
 
@@ -80,4 +79,36 @@ exports.sendEth = (req, res) => {
     }else{
         res.send('Not an anddress');
     }
+}
+
+exports.sendEthToSmartContract = (req, res) => {
+    var amount = req.body.amount;
+    var data = contract.methods.deposit().encodeABI();
+        web3.eth.getTransactionCount(myAccount, (err, txCount) => {
+            // Build the transaction
+            var txObject = {
+                nonce:    web3.utils.toHex(txCount),
+                to:       contract_config.contractAddress,
+                value:    web3.utils.toHex(web3.utils.toWei(amount, 'ether')),
+                gasLimit: web3.utils.toHex(2100000),
+                gasPrice: web3.utils.toHex(web3.utils.toWei('6', 'gwei')),
+                data: data  
+            }
+            // Sign the transaction
+            var tx = new Tx(txObject);
+            tx.sign(privateKey);
+        
+            var serializedTx = tx.serialize();
+            var raw = '0x' + serializedTx.toString('hex');
+        
+            // Broadcast the transaction
+            var transaction = web3.eth.sendSignedTransaction(raw, (err, tx) => {
+                res.json(tx);
+            });
+        });
+}
+
+exports.getBalance = (req, res) => {
+    contract.methods.getBalance().call()
+    .then(reward => res.send(reward))
 }

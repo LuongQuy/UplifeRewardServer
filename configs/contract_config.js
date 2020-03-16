@@ -67,21 +67,26 @@ module.exports = {
         },
         {
             "constant": false,
+            "inputs": [],
+            "name": "deposit",
+            "outputs": [],
+            "payable": true,
+            "stateMutability": "payable",
+            "type": "function"
+        },
+        {
+            "constant": false,
             "inputs": [
-                {
-                    "name": "userId",
-                    "type": "string"
-                },
                 {
                     "name": "_userAddress",
                     "type": "address"
                 },
                 {
-                    "name": "reward",
+                    "name": "_reward",
                     "type": "uint256"
                 }
             ],
-            "name": "sendEth",
+            "name": "sendEthToUser",
             "outputs": [],
             "payable": false,
             "stateMutability": "nonpayable",
@@ -121,5 +126,5 @@ module.exports = {
             "type": "fallback"
         }
     ],
-    contractAddress: '0x772866a111D75E611E5c8D035aaa9b28E1960Dcd'
+    contractAddress: '0x9bbd9c787cfa3b47d7d29dc023723aeccfc5f9de'
 }
