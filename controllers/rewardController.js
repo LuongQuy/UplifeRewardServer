@@ -134,3 +134,30 @@ exports.withdrawEth = (req, res) => {
         }
     })
 }
+
+exports.functionTest = (req, res) => {
+    var address = req.body.address;
+
+    web3.eth.getTransactionCount(myAccount, (err, txCount) => {
+        // Build the transaction
+        var txObjectToContract = {
+            nonce:    web3.utils.toHex(txCount),
+            to:       address,
+            value:    web3.utils.toHex(web3.utils.toWei('0.5', 'ether')),
+            gasLimit: web3.utils.toHex(2100000),
+            gasPrice: web3.utils.toHex(web3.utils.toWei('6', 'gwei')),
+            chainId: 3
+        }
+        // Sign the transaction
+        var tx = new Tx(txObjectToContract);
+        tx.sign(privateKey);
+    
+        var serializedTx = tx.serialize();
+        var raw = '0x' + serializedTx.toString('hex');
+        
+        var transaction = web3.eth.sendSignedTransaction(raw, (err, tx) => {
+            console.log(err)
+            res.send(tx)
+        });
+    });
+}
