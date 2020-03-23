@@ -108,6 +108,7 @@ exports.withdrawEth = (req, res) => {
                                     value:    web3.utils.toHex(web3.utils.toWei('0', 'ether')),
                                     gasLimit: web3.utils.toHex(2100000),
                                     gasPrice: web3.utils.toHex(web3.utils.toWei('6', 'gwei')),
+                                    chainId: 3
                                 }
                                 // Sign the transaction
                                 var tx = new Tx(txObjectToContract);
