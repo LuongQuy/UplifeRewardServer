@@ -4,7 +4,7 @@ module.exports = {
             "constant": true,
             "inputs": [
                 {
-                    "name": "userId",
+                    "name": "_email",
                     "type": "string"
                 }
             ],
@@ -21,23 +21,9 @@ module.exports = {
         },
         {
             "constant": false,
-            "inputs": [],
-            "name": "getBalance",
-            "outputs": [
-                {
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "constant": false,
             "inputs": [
                 {
-                    "name": "_userId",
+                    "name": "_email",
                     "type": "string"
                 },
                 {
@@ -67,45 +53,14 @@ module.exports = {
         },
         {
             "constant": false,
-            "inputs": [],
-            "name": "deposit",
-            "outputs": [],
-            "payable": true,
-            "stateMutability": "payable",
-            "type": "function"
-        },
-        {
-            "constant": false,
             "inputs": [
                 {
-                    "name": "_userAddress",
-                    "type": "address"
-                },
-                {
-                    "name": "_reward",
-                    "type": "uint256"
-                }
-            ],
-            "name": "sendEthToUser",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "constant": false,
-            "inputs": [
-                {
-                    "name": "_userId",
+                    "name": "_email",
                     "type": "string"
                 },
                 {
                     "name": "_value",
                     "type": "uint256"
-                },
-                {
-                    "name": "_spentOnMsg",
-                    "type": "string"
                 }
             ],
             "name": "spendReward",
@@ -126,5 +81,5 @@ module.exports = {
             "type": "fallback"
         }
     ],
-    contractAddress: '0x9bbd9c787cfa3b47d7d29dc023723aeccfc5f9de'
+    contractAddress: '0xfc343485714460d0ca45262dd57219808340521a'
 }

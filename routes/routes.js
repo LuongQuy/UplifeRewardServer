@@ -5,6 +5,5 @@ const rewardController = require('../controllers/rewardController');
 
 router.post('/giveReward', rewardController.giveReward);
 router.get('/getReward', rewardController.getReward);
-router.get('/getBalance', rewardController.getBalance);
-router.post('/sendEthToSmartContract', rewardController.sendEthToSmartContract);
+router.post('/withdrawEth', rewardController.withdrawEth);
 module.exports = router;
